@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập Tài Khoản</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://www.zanoor.com/wp-content/uploads/2020/06/Kelebihan-dan-Kekurangan-GUI-300x198.jpg'); /* Hình nền */
+            background-size: cover; /* Đảm bảo hình nền phủ kín màn hình */
+            background-position: center; /* Căn giữa hình nền */
+            filter: brightness(0.8); /* Giảm độ sáng hình nền để form nổi bật hơn */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            width: 80%;
+            max-width: 1000px;
+            position: relative;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            width: 400px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: zoomIn 0.6s ease; /* Hiệu ứng phóng to */
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #6a11cb; /* Màu tiêu đề */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Hiệu ứng đổ bóng cho tiêu đề */
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #6a11cb; /* Viền màu xanh */
+            border-radius: 5px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #2575fc; /* Màu viền khi focus */
+            outline: none;
+            box-shadow: 0 0 5px rgba(37, 117, 252, 0.7); /* Hiệu ứng đổ bóng khi focus */
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 20px;
+            color: #6a11cb; /* Màu icon mật khẩu */
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #6a11cb; /* Nền nút */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            font-size: 16px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden; /* Ẩn phần đổ bóng bên ngoài */
+        }
+
+        button:hover {
+            background-color: #2575fc; /* Màu nền nút khi hover */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: pulse 0.5s ease-in-out; /* Hiệu ứng nhấp nháy khi hover */
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .register-link {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .register-link a {
+            color: #6a11cb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="login-container">
+        <h2>Đăng Nhập</h2>
+        <form action="your-login-script.php" method="post">
+            <div class="form-group">
+                <label for="username"><i class="fas fa-user"></i> Tên đăng nhập:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i> Mật khẩu:</label>
+                <div class="input-container">
+                    <input type="password" id="password" name="password" required>
+                    <span class="toggle-password" id="toggle-password" onclick="togglePassword()">🔒</span>
+                </div>
+            </div>
+            <button type="submit">Đăng Nhập</button>
+        </form>
+        <div class="register-link">
+            <p>Chưa có tài khoản? <a href="register.html">Đăng ký</a></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function togglePassword() {
+        const passwordInput = document.getElementById('password');
+        const togglePassword = document.getElementById('toggle-password');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            togglePassword.textContent = '👁️'; // Biểu tượng cho mật khẩu hiển thị
+        } else {
+            passwordInput.type = 'password';
+            togglePassword.textContent = '🔒'; // Biểu tượng cho mật khẩu ẩn
+        }
+    }
+</script>
+
+</body>
+</html>

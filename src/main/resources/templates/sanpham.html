@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản phẩm</title>
+</head>
+<body>
+<h1 id="loichao"></h1> <!-- Nơi hiển thị lời chào -->
+
+<!-- Hiển thị danh sách sản phẩm -->
+<div>
+    <!-- Giả sử bạn sẽ lặp qua danh sách sản phẩm ở đây -->
+</div>
+
+<script>
+    function thayDoiLoiChao() {
+        const now = new Date(); // Lấy thời gian hiện tại
+        const gio = now.getHours(); // Lấy giờ hiện tại
+        const loiChao = document.getElementById('loichao'); // Truy cập vào thẻ h1
+
+        if (gio >= 5 && gio < 12) {
+            loiChao.innerText = "Xin chào quý khách, chúc quý khách buổi sáng vui vẻ!";
+        } else if (gio >= 12 && gio < 18) {
+            loiChao.innerText = "Xin chào quý khách, chúc quý khách buổi chiều tốt lành!";
+        } else {
+            loiChao.innerText = "Xin chào quý khách, chúc quý khách buổi tối ấm áp!";
+        }
+    }
+
+    // Gọi hàm khi trang web được tải xong
+    window.onload = thayDoiLoiChao;
+</script>
+</body>
+</html>

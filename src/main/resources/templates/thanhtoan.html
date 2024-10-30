@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông tin thanh toán</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Reset mặc định */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .banner {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #28a745; /* Màu nền cho banner */
+            color: white; /* Màu chữ cho banner */
+            padding: 20px;
+            border-radius: 5px; /* Bo góc cho banner */
+        }
+
+        .info {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-methods {
+            padding: 20px;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .methods-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around; /* Căn giữa các mục */
+            gap: 15px; /* Khoảng cách giữa các mục */
+        }
+
+        .method {
+            text-align: center;
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px; /* Bo góc nhiều hơn */
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s; /* Thêm hiệu ứng box-shadow */
+            width: 150px; /* Độ rộng cố định cho các mục */
+        }
+
+        .method:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng khi hover */
+        }
+
+        .payment-detail {
+            display: none;
+            background: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            width: 300px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+    <script>
+        function showPaymentDetail(type) {
+            const paymentDetail = document.getElementById("paymentDetail");
+            const paymentContent = document.getElementById("paymentContent");
+            const qrCodeContainer = document.getElementById("qrCodeContainer");
+            const successMessage = document.getElementById("successMessage");
+
+            paymentDetail.style.display = 'block'; // Hiển thị popup chi tiết
+            qrCodeContainer.style.display = 'none';
+            successMessage.style.display = 'none';
+
+            switch (type) {
+                case 'qr':
+                    paymentContent.innerHTML = `Thanh toán bằng QR qua ứng dụng Momo, ZaloPay, hoặc ViettelPay.`;
+                    qrCodeContainer.style.display = 'block';
+                    setTimeout(() => {
+                        successMessage.style.display = 'block';
+                    }, 2000); // Hiển thị thông báo sau 2 giây
+                    break;
+                case 'cash':
+                    paymentContent.innerHTML = `Thanh toán tiền mặt cho nhân viên giao hàng khi nhận hàng.`;
+                    break;
+                case 'card':
+                    paymentContent.innerHTML = `Thanh toán bằng thẻ tín dụng qua cổng thanh toán bảo mật.`;
+                    break;
+                case 'later':
+                    paymentContent.innerHTML = `Thanh toán trả sau qua dịch vụ của đối tác.`;
+                    break;
+            }
+        }
+
+        function closePaymentDetail() {
+            document.getElementById("paymentDetail").style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+
+<!-- Banner -->
+<div class="banner">
+    <img src="/images/thanhtoan.jpg" alt="ShopeePay Banner">
+</div>
+
+<!-- Thông tin chung -->
+<div class="info">
+    <h2>Thông tin hóa đơn</h2>
+    <p>Tiện ích với mọi lựa chọn thanh toán</p>
+</div>
+
+<!-- Phương thức thanh toán -->
+<div class="payment-methods">
+    <h3>Chọn phương thức thanh toán</h3>
+    <div class="methods-grid">
+        <div class="method" onclick="showPaymentDetail('qr')">
+            <img src="https://via.placeholder.com/100" alt="QR">
+            <p>Thanh toán QR</p>
+        </div>
+        <div class="method" onclick="showPaymentDetail('cash')">
+            <img src="https://via.placeholder.com/100" alt="Cash">
+            <p>Tiền mặt</p>
+        </div>
+        <div class="method" onclick="showPaymentDetail('card')">
+            <img src="https://via.placeholder.com/100" alt="Card">
+            <p>Thẻ tín dụng</p>
+        </div>
+        <div class="method" onclick="showPaymentDetail('later')">
+            <img src="https://via.placeholder.com/100" alt="Later">
+            <p>Trả sau</p>
+        </div>
+    </div>
+</div>
+
+<!-- Popup chi tiết thanh toán -->
+<div class="payment-detail" id="paymentDetail" style="display: none;">
+    <h3>Chi tiết thanh toán</h3>
+    <div id="paymentContent"></div>
+    <div id="qrCodeContainer" style="display: none;">
+        <img src="path_to_your_qr_code_image.png" alt="Mã QR" />
+        <p id="successMessage" style="color: green; display: none;">Chuyển thành công!</p>
+    </div>
+    <button onclick="closePaymentDetail()">Đóng</button>
+</div>
+</body>
+</html>

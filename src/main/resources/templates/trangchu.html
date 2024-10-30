@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cửa hàng thời trang với đa dạng sản phẩm và dịch vụ">
+    <meta name="keywords" content="cửa hàng thời trang, dịch vụ, sản phẩm, tiểu sử cửa hàng">
+    <meta name="author" content="Văn Lâm shop">
+
+    <title>TVL shop</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            background-color: #fff8dc;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%); /* Gradient màu */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Arial', sans-serif; /* Phông chữ khác */
+            border-bottom: 5px solid #ff6f61; /* Đường viền dưới */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+            position: relative;
+        }
+
+        header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1); /* Lớp phủ nhẹ */
+            transform: translateX(-50%);
+            border-radius: 10px; /* Bo góc */
+            z-index: 0; /* Đặt dưới các phần tử khác */
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em; /* Kích thước chữ lớn hơn */
+            z-index: 1; /* Đặt lên trên lớp phủ */
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 1.5em; /* Kích thước chữ phụ */
+            z-index: 1; /* Đặt lên trên lớp phủ */
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+            margin: 10px;
+        }
+        .service {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .service div {
+            flex-basis: 30%;
+            margin: 10px;
+            text-align: center;
+        }
+        .service img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .testimonial {
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+        /* Tối ưu cho màn hình nhỏ hơn 768px (mobile) */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+                margin: 10px;
+            }
+
+            header {
+                display: flex;
+                flex-direction: column;
+            }
+
+            img {
+                width: 100%; /* Hình ảnh co giãn theo kích thước màn hình */
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Trang Chủ - TVL Shop</h1>
+
+</header>
+
+<main>
+    <section style="padding: 20px; text-align: center;">
+        <h2>Thông tin Cửa Hàng</h2>
+        <p style="max-width: 800px; margin: 0 auto; line-height: 1.6;">
+            Chào mừng bạn đến với TVL Shop! Được thành lập vào năm 2024, chúng tôi tự hào là một trong những cửa hàng thời trang hàng đầu tại Hồ Chí Minh.
+            Với sứ mệnh mang đến cho khách hàng những sản phẩm chất lượng, phong cách và giá cả hợp lý, chúng tôi chuyên cung cấp đa dạng các mặt hàng thời trang cho cả nam và nữ.
+            Hãy đến và trải nghiệm dịch vụ tận tâm cùng bộ sưu tập độc đáo của chúng tôi!
+        </p>
+
+        <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px; width: 100%; height: 400px; background-color: #f0f0f0;">
+            <img src="/images/biacung.jpg" style="max-width: 100%; max-height: 100%; object-fit: cover;" />
+        </div>
+    </section>
+    <section style="padding: 20px; text-align: center;">
+        <h2>Thông Tin Chủ Cửa Hàng</h2>
+        <p style="max-width: 800px; margin: 0 auto; line-height: 1.8; font-family: Arial, sans-serif; font-size: 16px; color: #333;">
+            Xin chào, tôi là Trần Văn Lâm, người sáng lập TVL – thương hiệu thời trang đẳng cấp tại TP. Hồ Chí Minh. Với niềm đam mê thời trang và mong muốn mang đến những sản phẩm chất lượng, tôi đã quyết định khởi nghiệp trong lĩnh vực này.
+            <br><br>
+            Ra đời vào năm 2024, TVL không chỉ là một cửa hàng thời trang mà còn là không gian trải nghiệm, nơi khách hàng có thể khám phá các xu hướng mới nhất và lựa chọn những trang phục phản ánh cá tính riêng. Chúng tôi cam kết cung cấp sản phẩm với chất lượng vượt trội, phong cách tinh tế và dịch vụ tận tâm, mang đến sự hài lòng tối đa cho từng khách hàng.
+            <br><br>
+            TVL rất hân hạnh được đồng hành cùng bạn trên hành trình thể hiện phong cách riêng biệt.
+        </p>
+
+        <img src="/images/shopquanao.jpg" alt="Thông tin chủ cửa hàng" style="max-width: 80%; height: auto; margin-top: 20px; border-radius: 10px;" />
+    </section>
+
+
+    <section style="padding: 40px 20px; background-color: #fff; text-align: center;">
+        <h2 style="font-size: 28px; margin-bottom: 20px; color: #333;">Thông Tin Dịch Vụ</h2>
+        <div class="service" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; max-width: 1200px; margin: 0 auto;">
+            <div style="flex: 1; min-width: 300px; padding: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                <img src="/images/discount.webp" alt="Giảm giá" style="max-width: 100%; border-radius: 10px;" />
+                <h3 style="font-size: 22px; margin-top: 15px; color: #555;">Giảm giá</h3>
+                <p style="line-height: 1.8; color: #666;">Dịch vụ giảm giá tại TVL là cơ hội tuyệt vời để bạn sở hữu những sản phẩm chất lượng với giá ưu đãi. Năm 2024, chúng tôi mang đến nhiều chương trình khuyến mãi hấp dẫn từ giảm giá theo mùa đến ưu đãi đặc biệt cho khách hàng thân thiết. Đừng bỏ lỡ cơ hội mua sắm với mức giá tốt nhất và vẫn giữ được phong cách thời trang sành điệu.</p>
+            </div>
+            <div style="flex: 1; min-width: 300px; padding: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                <img src="/images/tuvankhachhang.webp" alt="Tư vấn khách hàng" style="max-width: 100%; border-radius: 10px;" />
+                <h3 style="font-size: 22px; margin-top: 15px; color: #555;">Tư vấn khách hàng</h3>
+                <p style="line-height: 1.8; color: #666;">Dịch vụ tư vấn khách hàng của TVL giúp bạn lựa chọn sản phẩm phù hợp nhất với phong cách và nhu cầu cá nhân. Với xu hướng mua sắm thông minh và cá nhân hóa, chúng tôi cung cấp dịch vụ tư vấn chuyên nghiệp, giúp bạn luôn tự tin và hài lòng với quyết định của mình.</p>
+            </div>
+            <div style="flex: 1; min-width: 300px; padding: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+                <img src="/images/giaohang.webp" alt="Giao hàng" style="max-width: 100%; border-radius: 10px;" />
+                <h3 style="font-size: 22px; margin-top: 15px; color: #555;">Giao hàng</h3>
+                <p style="line-height: 1.8; color: #666;">Dịch vụ giao hàng của TVL đảm bảo sản phẩm đến tay khách hàng nhanh chóng, an toàn. Dù bạn ở đâu, chúng tôi cam kết giao hàng đúng hẹn, với sản phẩm trong tình trạng hoàn hảo. Hãy yên tâm mua sắm và trải nghiệm dịch vụ giao hàng tiện lợi mà chúng tôi mang đến.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section style="max-width: 800px; margin: auto; padding: 20px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <h2 style="text-align: center; color: #333;">Bình Luận Của Khách Hàng</h2>
+
+        <!-- Form bình luận mới -->
+        <form id="commentForm" enctype="multipart/form-data" style="max-width: 600px; margin: 0 auto; background-color: #f9f9f9; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <h2 style="text-align: center; color: #333; margin-bottom: 20px;">Bình luận của bạn</h2>
+            <div style="margin-bottom: 15px;">
+                <label for="name" style="font-weight: bold; color: #333; display: block; margin-bottom: 5px;">Tên của bạn:</label>
+                <input type="text" id="name" name="name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;" required>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="comment" style="font-weight: bold; color: #333; display: block; margin-bottom: 5px;">Bình luận:</label>
+                <textarea id="comment" name="comment" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;" rows="4" required></textarea>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="image" style="font-weight: bold; color: #333; display: block; margin-bottom: 5px;">Tải ảnh lên:</label>
+                <input type="file" id="image" name="image" accept="image/*" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <button type="submit" id="submitButton" style="width: 100%; padding: 12px; background-color: #007BFF; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease;">
+                Gửi bình luận
+            </button>
+        </form>
+
+        <!-- Hiển thị các bình luận -->
+            <div id="commentsSection" style="margin-top: 20px;"></div>
+        </section>
+
+        <!-- Animation container -->
+        <div id="animation-container" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999;"></div>
+
+    <script>
+        let comments = JSON.parse(localStorage.getItem('comments')) || []; // Lấy dữ liệu từ LocalStorage hoặc khởi tạo mảng rỗng
+        let editIndex = -1; // Lưu vị trí bình luận đang sửa (nếu có)
+
+        // Hàm hiển thị bình luận
+        function displayComments() {
+            const commentsSection = document.getElementById('commentsSection');
+            commentsSection.innerHTML = ''; // Xóa các bình luận hiện có
+
+            comments.forEach((commentObj, index) => {
+                const commentDiv = document.createElement('div');
+                commentDiv.classList.add('testimonial');
+                commentDiv.style = `
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                padding: 15px;
+                margin: 10px 0;
+                background-color: #fff;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            `;
+
+                let imgHTML = commentObj.image
+                    ? `<img src="${commentObj.image}" alt="Ảnh bình luận" style="width: 80px; height: 80px; object-fit: cover; border-radius: 5px; margin-left: 10px;">`
+                    : '';
+
+                commentDiv.innerHTML = `
+                <div style="flex-grow: 1;">
+                    <p style="font-weight: bold; color: #007BFF;">${commentObj.name}</p>
+                    <p style="font-style: italic; color: #555;">"${commentObj.comment}"</p>
+                </div>
+                ${imgHTML}
+                <div>
+                    <button class="like-btn" style="background: none; border: none; cursor: pointer; color: #007BFF; font-size: 20px;" title="Thích">👍</button>
+                    <button class="heart-btn" style="background: none; border: none; cursor: pointer; color: #FF0000; font-size: 20px;" title="Thả tim">❤️</button>
+                    <button class="edit-btn" data-index="${index}" style="background: none; border: none; cursor: pointer; color: #FFA500; font-size: 18px;" title="Sửa">✏️</button>
+                    <button class="delete-btn" data-index="${index}" style="background: none; border: none; cursor: pointer; color: #FF0000; font-size: 18px;" title="Xóa">🗑️</button>
+                </div>
+            `;
+
+                commentsSection.appendChild(commentDiv);
+            });
+
+            addEventListeners(); // Gán sự kiện cho các nút
+        }
+
+        // Gán sự kiện cho các nút Thích, Thả tim, Sửa và Xóa
+        function addEventListeners() {
+            document.querySelectorAll('.like-btn').forEach(button => {
+                button.addEventListener('click', () => createFloatingIcon('👍'));
+            });
+
+            document.querySelectorAll('.heart-btn').forEach(button => {
+                button.addEventListener('click', () => createFloatingIcon('❤️'));
+            });
+
+            document.querySelectorAll('.edit-btn').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const index = event.target.dataset.index;
+                    loadCommentForEditing(index);
+                });
+            });
+
+            document.querySelectorAll('.delete-btn').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const index = event.target.dataset.index;
+                    deleteComment(index);
+                });
+            });
+        }
+
+        // Hàm thêm hoặc sửa bình luận
+        document.getElementById('commentForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Ngăn trang tải lại
+
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
+            const imageInput = document.getElementById('image').files[0];
+            let imageURL = '';
+            if (imageInput) {
+                imageURL = URL.createObjectURL(imageInput);
+            }
+            if (editIndex >= 0) {
+                // Cập nhật bình luận đang sửa
+                comments[editIndex] = { name, comment, image: imageURL };
+                editIndex = -1; // Reset vị trí sửa
+                document.getElementById('submitButton').innerText = 'Gửi bình luận';
+            } else {
+                // Thêm bình luận mới
+                comments.push({ name, comment, image: imageURL });
+            }
+
+            // Lưu bình luận vào LocalStorage
+            localStorage.setItem('comments', JSON.stringify(comments));
+
+            displayComments();
+            resetForm();
+        });
+
+        // Hàm xóa bình luận
+        function deleteComment(index) {
+            comments.splice(index, 1); // Xóa bình luận từ mảng
+            localStorage.setItem('comments', JSON.stringify(comments)); // Cập nhật LocalStorage
+            displayComments(); // Cập nhật lại giao diện
+        }
+
+        // Hàm tải bình luận lên form để sửa
+        function loadCommentForEditing(index) {
+            const comment = comments[index];
+            document.getElementById('name').value = comment.name;
+            document.getElementById('comment').value = comment.comment;
+            editIndex = index; // Lưu vị trí bình luận đang sửa
+            document.getElementById('submitButton').innerText = 'Cập nhật bình luận';
+        }
+
+        // Hàm reset form
+        function resetForm() {
+            document.getElementById('name').value = '';
+            document.getElementById('comment').value = '';
+            document.getElementById('image').value = '';
+        }
+
+        // Hàm tạo hiệu ứng biểu tượng nổi
+        function createFloatingIcon(icon) {
+            const animationContainer = document.getElementById('animation-container');
+            const iconElement = document.createElement('div');
+            iconElement.innerHTML = icon;
+            iconElement.style.position = 'absolute';
+            iconElement.style.fontSize = '40px';
+            iconElement.style.opacity = '1';
+            iconElement.style.transition = 'transform 2s ease-out, opacity 2s ease-out';
+
+            const startX = Math.random() * 100;
+            iconElement.style.left = `${startX}vw`;
+            iconElement.style.bottom = '0';
+
+            animationContainer.appendChild(iconElement);
+
+            setTimeout(() => {
+                iconElement.style.transform = `translateY(-150vh)`;
+                iconElement.style.opacity = '0';
+            }, 100);
+
+            setTimeout(() => {
+                iconElement.remove();
+            }, 2000);
+        }
+
+        // Hiển thị các bình luận ban đầu khi trang được tải
+        window.onload = function() {
+            displayComments();
+        };
+
+    </script>
+
+
+
+    <section style="max-width: 800px; margin: auto; padding: 25px; background-color: #eaf6ff; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h2 style="text-align: center; color: #333; margin-bottom: 20px; font-family: 'Arial', sans-serif;">Lý Do Chọn Cửa Hàng Chúng Tôi</h2>
+        <ul style="list-style-type: none; padding: 0;">
+            <li style="background-color: #fff; margin: 12px 0; padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); display: flex; justify-content: space-between; align-items: center; transition: transform 0.2s, box-shadow 0.2s;">
+                <strong style="color: #007BFF;">Chất lượng sản phẩm cao.</strong>
+                <button style="padding: 8px 15px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
+                    Tìm hiểu thêm
+                </button>
+            </li>
+            <li style="background-color: #fff; margin: 12px 0; padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); display: flex; justify-content: space-between; align-items: center; transition: transform 0.2s, box-shadow 0.2s;">
+                <strong style="color: #007BFF;">Giá cả hợp lý và cạnh tranh.</strong>
+                <button style="padding: 8px 15px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
+                    Tìm hiểu thêm
+                </button>
+            </li>
+            <li style="background-color: #fff; margin: 12px 0; padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); display: flex; justify-content: space-between; align-items: center; transition: transform 0.2s, box-shadow 0.2s;">
+                <strong style="color: #007BFF;">Dịch vụ khách hàng tận tình và chuyên nghiệp.</strong>
+                <button style="padding: 8px 15px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
+                    Tìm hiểu thêm
+                </button>
+            </li>
+            <li style="background-color: #fff; margin: 12px 0; padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); display: flex; justify-content: space-between; align-items: center; transition: transform 0.2s, box-shadow 0.2s;">
+                <strong style="color: #007BFF;">Có nhiều chương trình khuyến mãi hấp dẫn.</strong>
+                <button style="padding: 8px 15px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
+                    Tìm hiểu thêm
+                </button>
+            </li>
+            <li style="background-color: #fff; margin: 12px 0; padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); display: flex; justify-content: space-between; align-items: center; transition: transform 0.2s, box-shadow 0.2s;">
+                <strong style="color: #007BFF;">Luôn cập nhật các xu hướng thời trang mới nhất.</strong>
+                <button style="padding: 8px 15px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
+                    Tìm hiểu thêm
+                </button>
+            </li>
+        </ul>
+    </section>
+
+    <script>
+        // Hiệu ứng hover cho các phần tử <li>
+        document.querySelectorAll('li').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'scale(1.02)';
+                item.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.15)';
+            });
+
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'scale(1)';
+                item.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.1)';
+            });
+        });
+
+        // Hiệu ứng hover cho nút
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                button.style.backgroundColor = '#0056b3';
+            });
+
+            button.addEventListener('mouseleave', () => {
+                button.style.backgroundColor = '#007BFF';
+            });
+        });
+    </script>
+    </section>
+
+
+<footer>
+    <p>&copy; 2024 Cửa hàng của bạn | Địa chỉ: Số 108/37, Đường Miếu Bình Đông, TP. Hồ Chí Minh | Điện thoại: 0368.221.867</p>
+</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cửa hàng bán quần áo thời trang nam nữ đẹp, phong cách, giá rẻ">
+    <meta name="keywords" content="quần áo, thời trang, bán quần áo, quần áo nam,
+    quần áo nữ, giày dép nam nữ, thời trang giá rẻ">
+    <meta name="author" content="TVL Shop">
+    <title>Thời trang luxury | TVL Cửa Hàng</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+<style>
+    body {
+        background-color: #FFFAFA;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    /* Màu sắc và hover cho vòng tròn */
+    .color {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
+        cursor: pointer;
+        border: 2px solid transparent;
+    }
+
+    .color:hover {
+        border-color: #333;
+    }
+
+    header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Màu nền bán trong suốt */
+        padding: 10px 0;
+        z-index: 10;
+    }
+
+    header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.3); /* Nền trong suốt nhẹ hơn */
+        padding: 15px 0;
+        z-index: 10;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+        position: relative;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 18px;
+        padding: 10px 15px;
+        transition: background-color 0.3s;
+    }
+
+    nav ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.3); /* Hover đẹp hơn */
+        border-radius: 5px;
+    }
+
+    .banner {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(45deg, #1e90ff, #ff8c00);
+        animation: gradientShift 10s infinite alternate;
+    }
+
+    .banner-text {
+        position: relative;
+        z-index: 1;
+        font-size: 36px;
+        color: white;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .contact-link {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .contact-link:hover {
+        color: #0056b3;
+    }
+
+    .dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 150px;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+    }
+
+    .dropdown li {
+        list-style: none;
+        padding: 10px;
+    }
+
+    .dropdown li a {
+        color: #333;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+        transition: background-color 0.3s;
+        background-color: #f9f9f9;
+    }
+
+    .dropdown li a:hover {
+        background-color: #f1f1f1;
+    }
+
+    .contact-link:hover + .dropdown,
+    ul li:hover .dropdown {
+        display: block;
+    }
+
+    /* Phần tìm kiếm và đăng nhập/đăng ký */
+    .header-right {
+        display: flex;
+        align-items: center;
+    }
+
+    .search-container {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+    .search-container input[type="text"] {
+        padding: 8px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .account-links {
+        display: flex;
+        gap: 15px;
+    }
+
+    .account-links a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .account-links a:hover {
+        text-decoration: underline;
+    }
+
+    /* Phần tùy chọn thanh toán */
+    .payment-options {
+        display: none;
+        position: absolute;
+        background-color: #444;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        top: 40px;
+        right: 0;
+        z-index: 1000;
+        width: 250px;
+    }
+
+    .payment-options p {
+        cursor: pointer;
+        padding: 8px;
+        margin: 0;
+        border-bottom: 1px solid #555;
+        color: white;
+    }
+
+    .payment-options p:hover {
+        background-color: #555;
+    }
+
+    .payment-detail {
+        display: none;
+        padding: 20px;
+        margin-top: 20px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    .payment-detail img {
+        max-width: 200px;
+        margin-top: 10px;
+    }
+
+    /* Banner container */
+    .banner {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        color: white;
+        font-size: 36px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        background: linear-gradient(45deg, #1e90ff, #ff8c00);
+        animation: gradientShift 10s infinite alternate;
+    }
+
+    /* Slideshow container */
+    .banner-slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        animation: slide 15s infinite;
+    }
+
+    /* Each image */
+    .banner-image {
+        min-width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* Animation to slide images */
+    @keyframes slide {
+        0% { transform: translateX(0); }
+        33% { transform: translateX(-100%); }
+        66% { transform: translateX(-200%); }
+        100% { transform: translateX(0); }
+    }
+
+    /* Centered text over banner */
+    .banner-text {
+        position: relative;
+        z-index: 1;
+    }
+
+
+    /* Banner grid layout */
+    .banner-grid {
+        display: flex;
+        flex-direction: row; /* Đặt các phần tử nằm trên một hàng ngang */
+        gap: 20px; /* Khoảng cách giữa các khung */
+        overflow: hidden;
+        padding: 20px;
+        animation: backgroundSlide 10s infinite alternate; /* Tạo nền động */
+    }
+
+    /* Animation for dynamic background */
+    @keyframes backgroundSlide {
+        0% { background-color: #f1f8e9; }
+        25% { background-color: #ffe0b2; }
+        50% { background-color: #bbdefb; }
+        75% { background-color: #f8bbd0; }
+        100% { background-color: #f1f8e9; }
+    }
+
+    .banner-item {
+        flex: 1; /* Mỗi khung sẽ chiếm đều diện tích */
+        padding: 10px;
+        border-radius: 8px;
+        text-align: center;
+        transition: transform 0.3s ease; /* Tạo hiệu ứng hover */
+    }
+
+    .banner-item:hover {
+        transform: scale(1.05); /* Phóng to nhẹ khi hover */
+    }
+    /* Menu bộ lọc sản phẩm */
+    .product-menu {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    .product-menu button {
+        margin: 0 10px;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    /* Danh sách sản phẩm */
+    .section {
+        padding: 50px;
+        text-align: center;
+    }
+
+    /* Danh sách sản phẩm */
+    .product-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .product {
+        background-color: #f0f8ff;
+        border: 1px solid #ddd;
+        flex-basis: 23%;
+        box-sizing: border-box;
+        text-align: center;
+        margin: 10px;
+        transition: transform 0.2s;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        position: relative;
+    }
+
+    .product img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        transition: transform 0.3s ease;
+    }
+
+    .product img:hover {
+        transform: scale(1.1);
+    }
+
+    .product h3 {
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+    .product p {
+        font-size: 14px;
+        color: #333;
+    }
+
+    .product a {
+        display: inline-block;
+        margin-top: 5px;
+        color: #007bff;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+    }
+
+    .product a:hover {
+        text-decoration: underline;
+        transform: scale(1.05);
+        z-index: 1;
+    }
+
+    /* Chi tiết sản phẩm */
+    .product-details {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .product-details img {
+        width: 50vw;
+        height: auto;
+        border-radius: 5px;
+        margin-top: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .product-details img:hover {
+        transform: scale(1.1);
+    }
+
+    /* Footer */
+    footer {
+        background-color: #333;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    /* Modal */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        width: 90%;
+        max-width: 500px;
+        position: relative; /* Để dấu "X" được định vị chính xác */
+    }
+
+    .modal-content img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #333;
+        font-size: 30px;
+        font-weight: bold;
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
+
+    .close:hover {
+        color: #ff0000; /* Màu đỏ khi hover để dễ nhận diện */
+    }
+
+    .modal-content h3 {
+        font-size: 24px;
+        margin: 10px 0;
+    }
+
+    .modal-content p {
+        font-size: 18px;
+        color: #333;
+    }
+
+</style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/index" class="contact-link">Trang chủ</a></li>
+            <li><a href="/trangchu" class="contact-link">Giới thiệu</a></li>
+            <li><a href="/sanpham" class="contact-link">Sản phẩm</a></li>
+
+            <li>
+                <a href="#" class="contact-link">Liên hệ</a>
+                <ul class="dropdown">
+                    <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
+                    <li><a href="https://zalo.me/0368221867" target="_blank">Zalo</a></li>
+                    <li><a href="tel:+84368221867">0368221867</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/thanhtoan" id="paymentButton" class="contact-link">Thanh toán</a>
+
+                <div class="payment-options" id="paymentOptions" style="display: none;">
+                    <p onclick="showPaymentDetail('qr')">Thanh toán bằng QR</p>
+                    <p onclick="showPaymentDetail('cash')">Thanh toán tiền mặt</p>
+                    <p onclick="showPaymentDetail('card')">Thanh toán bằng thẻ tín dụng</p>
+                    <p onclick="showPaymentDetail('later')">Thanh toán trả sau</p>
+                </div>
+            </li>
+        </ul>
+
+        <!-- Thanh tìm kiếm và liên kết đăng nhập, đăng ký -->
+        <div class="header-right">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm..." onkeyup="searchProducts()">
+            </div>
+            <div class="account-links">
+                <a href="/dangnhap">Đăng nhập</a>
+                <a href="/account/register.html">Đăng ký</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Banner chính -->
+<div class="banner">
+    <div class="banner-slide">
+        <img class="banner-image" src="/images/biacung.jpg" alt="Banner Image 1">
+        <div class="banner-image" style="background-image: url('https://sikido.vn/uploads/source/hinhanhh/26231544-406720329760652-93245680665125997-n.jpg');"></div>
+        <div class="banner-image" style="background-image: url('https://tpb.vn/wps/wcm/connect/d029f435-4cd0-4247-bc04-02e6fbdaaa1a/1/%E1%BA%A2nh+1.jpg?MOD=AJPERES&CVID=');"></div>
+    </div>
+    <div class="banner-text"></div>
+</div>
+<main>
+    <section class="banner-grid">
+        <a href="https://gavani.vn/" class="banner-item" style="background-color: #f1f8e9;">
+            <img src="/images/gavani.webp" alt="Deal Hot 50++" style="width: 100%; height: auto; border-radius: 5px;">
+            <h3>Deal Hot 50++</h3>
+            <p>Thời trang xu hướng</p>
+            <button class="banner-button">Xem Chi Tiết</button>
+        </a>
+        <a href="https://savani.vn/" class="banner-item" style="background-color: #ffe0b2;">
+            <img src="/images/savani.jpg" alt="Hàng hiệu" style="width: 100%; height: auto; border-radius: 5px;">
+            <h3>Hàng hiệu</h3>
+            <p>Chuẩn chính hãng</p>
+            <button class="banner-button">Xem Chi Tiết</button>
+        </a>
+        <a href="https://www.mwc.com.vn/" class="banner-item" style="background-color: #bbdefb;">
+            <img src="/images/mwc.webp" alt="Giày dép" style="width: 100%; height: auto; border-radius: 5px;">
+            <h3>Giày dép</h3>
+            <p>Ưu đãi khách hàng mới</p>
+            <button class="banner-button">Xem Chi Tiết</button>
+        </a>
+        <a href="https://www.pnj.com.vn/" class="banner-item" style="background-color: #f8bbd0;">
+            <img src="/images/trangsuc.webp" alt="Trang sức" style="width: 100%; height: auto; border-radius: 5px;">
+            <h3>Trang sức</h3>
+            <p>Tinh tế, đẹp mắt</p>
+            <button class="banner-button">Xem Chi Tiết</button>
+        </a>
+    </section>
+
+
+    <!-- Bộ sưu tập quần áo -->
+    <section class="section"> <h2>Bộ Sưu Tập Quần Áo Thời Trang Cao Cấp</h2>
+        <p>Bước vào thế giới thời trang với bộ sưu tập quần áo đa dạng phong cách từ casual đến sang trọng.
+            Được thiết kế theo xu hướng mới nhất, các sản phẩm quần áo của chúng tôi không chỉ đẹp mắt mà còn đem lại sự thoải mái, chất lượng tốt.
+        Đặc biệt, mức giá hấp dẫn cho những trang phục thời thượng nhất.</p> </section>
+    <!-- Menu bộ lọc sản phẩm -->
+    <div class="product-menu">
+        <button onclick="filterProducts('all')">Tất cả</button>
+        <button onclick="filterProducts('aococ')">Áo Cộc</button>
+        <button onclick="filterProducts('somi')">Áo Sơ Mi</button>
+        <button onclick="filterProducts('hang')">Bộ Hãng</button>
+    </div>
+        <div class="product-list" id="productList">
+            <!-- Sản phẩm M01: Áo Cộc -->
+            <div class="product" id="product-aococ">
+                <div class="product-image">
+                    <img id="product-img-aococ" src="/images/aococtayden.jpg" alt="Áo Cộc" />
+                </div>
+                <h3 class="product-title">Áo Cộc</h3>
+                <p class="product-price">250,000₫</p>
+                <p class="product-origin">Xuất xứ: Việt Nam</p>
+                <p class="product-material">Chất liệu: FVN</p>
+
+                <!-- Lựa chọn màu sắc -->
+                <div class="color-options">
+                    <p>Chọn màu sắc:</p>
+                    <span class="color" data-image="/images/aococtaydo.webp" style="background-color: red;" title="Màu đỏ"></span>
+                    <span class="color" data-image="/images/aococtayden.jpg" style="background-color: black;" title="Màu đen"></span>
+                    <span class="color" data-image="/images/aococ.jpg" style="background-color: green;" title="Màu xanh lá"></span>
+                </div>
+
+                <div class="product-actions">
+                    <button class="quick-buy">Mua nhanh</button>
+                    <button class="view-details" onclick="showProductDetail('Áo cộc', '/images/aococtayden.jpg', '250,000₫', 'Việt Nam', 'FVN', 'Áo cộc tay nam lịch sự.')">Xem chi tiết</button>
+                </div>
+            </div>
+
+            <!-- Sản phẩm M09: Bộ Thombrowne -->
+            <div class="product">
+                <div class="product-image">
+                    <img id="product-img-m09" src="/images/thombrownxamcoc.jpg" alt="Bộ Thombrowne" />
+                </div>
+                <h3 class="product-title">Bộ Thombrowne</h3>
+                <p class="product-price">550,000₫</p>
+                <p class="product-origin">Xuất xứ: Nhật Bản</p>
+                <p class="product-material">Chất liệu: FNB</p>
+
+                <!-- Lựa chọn màu sắc -->
+                <div class="color-options">
+                    <p>Chọn màu sắc:</p>
+                    <span class="color" data-image="/images/thombrowne.jpg" style="background-color: white;" title="Màu trắng"></span>
+                    <span class="color" data-image="/images/thombrownxamcoc.jpg" style="background-color: gray;" title="Màu xám"></span>
+                    <span class="color" data-image="/images/thombrowneden.jpg" style="background-color: black;" title="Màu đen"></span>
+                </div>
+
+                <div class="product-actions">
+                    <button class="quick-buy">Mua nhanh</button>
+                    <button class="view-details" onclick="showProductDetail('Bộ Thombrowne', '/images/thombrownxamcoc.jpg', '550,000₫', 'Nhật Bản', 'FNB', 'Bộ Thombrowne chuẩn Thái.')">Xem chi tiết</button>
+                </div>
+            </div>
+
+            <!-- Sản phẩm M03: Áo Sơ Mi -->
+            <div class="product">
+                <div class="product-image">
+                    <img id="product-img-somi" src="/images/aosomi.jpeg" alt="Áo Sơ Mi" />
+                </div>
+                <h3 class="product-title">Áo Sơ Mi</h3>
+                <p class="product-price">300,000₫</p>
+                <p class="product-origin">Xuất xứ: Hàn Quốc</p>
+                <p class="product-material">Chất liệu: FSU</p>
+
+                <!-- Lựa chọn màu sắc -->
+                <div class="color-options">
+                    <p>Chọn màu sắc:</p>
+                    <span class="color" data-image="/images/aosomiden.webp" style="background-color: black;" title="Màu đen"></span>
+                    <span class="color" data-image="/images/áoomitrang.webp" style="background-color: white;" title="Màu trắng"></span>
+                    <span class="color" data-image="/images/aosomixanh.jpg" style="background-color: navy;" title="Màu xanh đen"></span>
+                </div>
+
+                <div class="product-actions">
+                    <button class="quick-buy">Mua nhanh</button>
+                    <button class="view-details" onclick="showProductDetail('Áo sơ mi', '/images/aosomi.jpeg', '300,000₫', 'Hàn Quốc', 'FSU', 'Áo công sở đi sự kiện.')">Xem chi tiết</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Bộ sưu tập giày dép -->
+    <section class="section"> <h2>Giày Dép Thời Trang - Bộ Sưu Tập Mới Nhất</h2>
+        <p>Khám phá ngay bộ sưu tập giày dép cao cấp với thiết kế hiện đại, phong cách đa dạng phù hợp cho mọi dịp.
+            Từ giày thể thao, giày cao gót đến dép lê, chúng tôi mang đến cho bạn sự lựa chọn tuyệt vời với
+        mức giá cạnh tranh. Đảm bảo chất lượng và sự thoải mái cho đôi chân của bạn.</p> </section>
+
+        <div class="product-list">
+            <!-- Sản phẩm M04: Giày Da -->
+            <div class="product">
+                <div class="product-image">
+                    <img id="product-img-da" src="/images/giayda.jpg" alt="Giày Da" />
+                </div>
+                <h3 class="product-title">Giày Da</h3>
+                <p class="product-price">300,000₫</p>
+                <p class="product-origin">Xuất xứ: InDo</p>
+                <p class="product-material">Chất liệu: FIN</p>
+
+                <!-- Lựa chọn màu sắc -->
+                <div class="color-options">
+                    <p>Chọn màu sắc:</p>
+                    <span class="color" data-image="/images/giayda.jpg" style="background-color: black;" title="Màu đen"></span>
+                    <span class="color" data-image="/images/giaydaxanh.jpg" style="background-color: green;" title="Màu xanh"></span>
+                    <span class="color" data-image="/images/giaydanau.webp" style="background-color: brown;" title="Màu nâu"></span>
+                </div>
+
+                <div class="product-actions">
+                    <button class="quick-buy">Mua nhanh</button>
+                    <button class="view-details" onclick="showProductDetail('Giày Da', '/images/giayda.jpg', '300,000₫', 'InDo', 'FIN', 'Giày tây hội nghị.')">Xem chi tiết</button>
+                </div>
+            </div>
+
+            <!-- Sản phẩm M05: Giày Bale -->
+            <div class="product">
+                <div class="product-image">
+                    <img id="product-img-bale" src="/images/giaybale.jpg" alt="Giày Bale" />
+                </div>
+                <h3 class="product-title">Giày Bale</h3>
+                <p class="product-price">600,000₫</p>
+                <p class="product-origin">Xuất xứ: Đài Loan</p>
+                <p class="product-material">Chất liệu: FDL</p>
+
+                <!-- Lựa chọn màu sắc -->
+                <div class="color-options">
+                    <p>Chọn màu sắc:</p>
+                    <span class="color" data-image="/images/giaybale.jpg" style="background-color: white;" title="Màu trắng"></span>
+                    <span class="color" data-image="/images/giaybaledo.jpg" style="background-color: red;" title="Màu đỏ"></span>
+                    <span class="color" data-image="/images/giaybalehong.jpg" style="background-color: pink;" title="Màu hồng"></span>
+                </div>
+
+                <div class="product-actions">
+                    <button class="quick-buy">Mua nhanh</button>
+                    <button class="view-details" onclick="showProductDetail('Giày Bale', '/images/giaybale.jpg', '600,000₫', 'Đài Loan', 'FDL', 'Giày bale phong cách nhẹ nhàng.')">Xem chi tiết</button>
+                </div>
+            </div>
+
+            <!-- Sản phẩm M06: Giày Cao Cấp -->
+            <div class="product">
+                <div class="product-image">
+                    <img id="product-img-giay" src="/images/giaycaocap.jpg" alt="Giày Cao Cấp" />
+                </div>
+                <h3 class="product-title">Giày Cao Cấp</h3>
+                <p class="product-price">450,000₫</p>
+                <p class="product-origin">Xuất xứ: Nhật Bản</p>
+                <p class="product-material">Chất liệu: FNB</p>
+
+                <!-- Lựa chọn màu sắc -->
+                <div class="color-options">
+                    <p>Chọn màu sắc:</p>
+                    <span class="color" data-image="/images/giaycaocap.jpg" style="background-color: brown;" title="Màu nâu"></span>
+                    <span class="color" data-image="/images/giaycaocapden.jpg" style="background-color: black;" title="Màu đen"></span>
+                    <span class="color" data-image="/images/giaycaocapxanh.webp" style="background-color: navy;" title="Màu xanh đen"></span>
+                </div>
+
+                <div class="product-actions">
+                    <button class="quick-buy">Mua nhanh</button>
+                    <button class="view-details" onclick="showProductDetail('Giày Cao Cấp', '/images/giaycaocap.jpg', '450,000₫', 'Nhật Bản', 'FNB', 'Giày nhập khẩu chính hãng.')">Xem chi tiết</button>
+                </div>
+            </div>
+        </div>
+    <!-- Phần chi tiết sản phẩm -->
+                <div class="product-details" style="display:none;">
+                    <img src="" alt="Chi tiết sản phẩm" id="detail-image" />
+                    <h2 id="detail-title"></h2>
+                    <p id="detail-price"></p>
+                    <p id="detail-origin"></p>
+                    <p id="detail-material"></p>
+                    <p id="detail-description"></p>
+                </div>
+            </div>
+        </section>
+
+    <!-- Bộ sưu tập đồ bộ -->
+    <section class="section"> <h2>Bộ Sưu Tập Đồ Bộ Sang Trọng, Tiện Lợi</h2>
+        <p>Thư giãn tại nhà mà vẫn giữ được phong cách với bộ sưu tập đồ bộ cao cấp. Chúng tôi mang đến những mẫu đồ bộ thời trang, vừa thoải mái vừa thanh lịch.
+        Sản phẩm chất lượng, giá cả hợp lý, là lựa chọn hoàn hảo cho những ngày ở nhà nhưng vẫn muốn thật xinh đẹp.</p> </section>
+
+        <div class="product-list">
+            <!-- Sản phẩm M07: Đồ bộ Pajama -->
+            <div class="product">
+                <div class="product-image">
+                    <img id="product-img-pajama" src="/images/pajama.jpg" alt="Đồ bộ PAJAMA" />
+                </div>
+                <h3 class="product-title">Đồ bộ PAJAMA</h3>
+                <p class="product-price">800,000₫</p>
+                <p class="product-origin">Xuất xứ: InDo</p>
+                <p class="product-material">Chất liệu: FIN</p>
+
+                <!-- Lựa chọn màu sắc -->
+                <div class="color-options">
+                    <p>Chọn màu sắc:</p>
+                    <span class="color" data-image="/images/aopajamaden.jpg" style="background-color: black;" title="Màu đen"></span>
+                    <span class="color" data-image="/images/pajama.jpg" style="background-color: cadetblue;" title="Màu xanh"></span>
+                    <span class="color" data-image="/images/aopajamatrang.jpg" style="background-color: white;" title="Màu trắng"></span>
+                </div>
+
+                <div class="product-actions">
+                    <button class="quick-buy">Mua nhanh</button>
+                    <button class="view-details" onclick="showProductDetail('Đồ bộ PAJAMA', '/images/pajama.jpg', '800,000₫', 'InDo', 'FIN', 'Áo chính hãng.')">Xem chi tiết</button>
+                </div>
+            </div>
+
+            <!-- Sản phẩm M08: Áo cặp nam nữ -->
+            <div class="product">
+                <div class="product-image">
+                    <img id="product-img-m08" src="/images/aocapnamnu.jpg" alt="Áo cặp" />
+                </div>
+                <h3 class="product-title">Áo cặp</h3>
+                <p class="product-price">700,000₫</p>
+                <p class="product-origin">Xuất xứ: Đài Loan</p>
+                <p class="product-material">Chất liệu: FDL</p>
+
+                <!-- Lựa chọn màu sắc -->
+                <div class="color-options">
+                    <p>Chọn màu sắc:</p>
+                    <span class="color" data-image="/images/aocapnamnu.jpg" style="background-color: PapayaWhip;" title="Màu kem"></span>
+                    <span class="color" data-image="/images/docaphong.jpg" style="background-color: pink;" title="Màu hồng"></span>
+                    <span class="color" data-image="/images/aocapdo.jpg" style="background-color: red;" title="Màu đỏ"></span>
+                </div>
+
+                <div class="product-actions">
+                    <button class="quick-buy">Mua nhanh</button>
+                    <button class="view-details" onclick="showProductDetail('Áo cặp', '/images/aocapnamnu.jpg', '700,000₫', 'Đài Loan', 'FDL', 'Áo đôi phong cách chính hãng.')">Xem chi tiết</button>
+                </div>
+            </div>
+
+
+            <!-- Sản phẩm M02: Áo Ngủ -->
+            <div class="product">
+                <div class="product-image">
+                    <img id="product-img-ngui" src="/images/aongutrang.jpg" alt="Áo Ngủ" />
+                </div>
+                <h3 class="product-title">Áo Ngủ</h3>
+                <p class="product-price">400,000₫</p>
+                <p class="product-origin">Xuất xứ: Việt Nam</p>
+                <p class="product-material">Chất liệu: FCC</p>
+
+                <!-- Lựa chọn màu sắc -->
+                <div class="color-options">
+                    <p>Chọn màu sắc:</p>
+                    <span class="color" data-image="/images/aonguhong.jpg" style="background-color: lightpink;" title="Màu hồng "></span>
+                    <span class="color" data-image="/images/aongutrang.jpg" style="background-color: white;" title="Màu trắng"></span>
+                    <span class="color" data-image="/images/aobo.jpg" style="background-color: black;" title="Màu đen"></span>
+                </div>
+
+                <div class="product-actions">
+                    <button class="quick-buy">Mua nhanh</button>
+                    <button class="view-details" onclick="showProductDetail('Áo ngủ', '/images/aobo.jpg', '400,000₫', 'Việt Nam', 'FCC', 'Áo ngủ nam nữ.')">Xem chi tiết</button>
+                </div>
+            </div>
+            <!-- CSS -->
+            <style>
+                .color {
+                    display: inline-block;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                    cursor: pointer;
+                    border: 2px solid transparent;
+                }
+
+                .color:hover {
+                    border-color: #333;
+                }
+
+                .product-actions {
+                    margin-top: 10px;
+                }
+
+                .product-actions button {
+                    margin-right: 10px;
+                    padding: 8px 15px;
+                    cursor: pointer;
+                }
+            </style>
+
+            <!-- JavaScript -->
+            <script>
+                // Khởi tạo sự kiện để đổi ảnh và lưu lại lựa chọn
+                document.querySelectorAll('.product').forEach(product => {
+                    const colorOptions = product.querySelectorAll('.color');
+                    const productImg = product.querySelector('.product-image img');
+                    const detailButton = product.querySelector('.view-details');
+
+                    // Biến lưu trữ thông tin ảnh và màu đã chọn
+                    let selectedImage = productImg.src;
+                    let selectedColor = '';
+
+                    // Lặp qua từng tùy chọn màu và thêm sự kiện click
+                    colorOptions.forEach(option => {
+                        option.addEventListener('click', () => {
+                            selectedImage = option.getAttribute('data-image'); // Lưu ảnh đã chọn
+                            selectedColor = option.getAttribute('title'); // Lưu màu đã chọn từ thuộc tính title
+                            productImg.src = selectedImage; // Cập nhật ảnh trên giao diện
+                        });
+                    });
+                });
+
+                // Hiển thị chi tiết sản phẩm với ảnh và màu đã chọn
+                showProductDetail(title, selectedImage, selectedColor, price, origin, material, description);
+                // Hiển thị thông tin chi tiết sản phẩm
+                function showProductDetail(title, image, price, origin, material, description) {
+                    alert(`
+                Tên sản phẩm: ${title}
+                Giá: ${price}
+                Xuất xứ: ${origin}
+                Chất liệu: ${material}
+                Mô tả: ${description}
+            `);
+                }
+            </script>
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- Chi tiết thanh toán -->
+    <div class="payment-detail" id="paymentDetail">
+        <h3 id="paymentTitle"></h3>
+        <div id="paymentContent"></div>
+    </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 TVL Cửa hàng | Địa chỉ: Số 108/37, Đường Miếu Bình Đông, TP. Hồ Chí Minh | Điện thoại: 0368.221.867</p>
+</footer>
+<!-- Modal cho chi tiết sản phẩm -->
+<div class="modal" id="productModal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3 id="modalProductName"></h3>
+        <img id="modalProductImage" src="" alt="" style="max-width: 100%; height: auto;">
+        <p id="modalProductPrice"></p>
+        <p id="modalProductOrigin"></p>
+        <p id="modalProductMaterial"></p>
+        <p id="modalProductDescription"></p>
+    </div>
+</div>
+<script>
+    // Hiển thị danh sách phương thức thanh toán khi nhấp vào nút "Thanh toán"
+    document.getElementById('paymentButton').addEventListener('click', function() {
+        const paymentOptions = document.getElementById('paymentOptions');
+        paymentOptions.style.display = paymentOptions.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Hiển thị chi tiết từng phương thức thanh toán
+    function showPaymentDetail(method) {
+        const paymentDetail = document.getElementById('paymentDetail');
+        const paymentTitle = document.getElementById('paymentTitle');
+        const paymentContent = document.getElementById('paymentContent');
+
+        paymentDetail.style.display = 'block'; // Hiển thị chi tiết thanh toán
+
+        if (method === 'qr') {
+            paymentTitle.textContent = 'Thanh toán bằng QR';
+            paymentContent.innerHTML = '<img src="/images/qr-code.png" alt="QR Code" /><p>Quét mã để thanh toán</p>';
+        } else if (method === 'cash') {
+            paymentTitle.textContent = 'Thanh toán tiền mặt';
+            paymentContent.innerHTML = '<p>Vui lòng thanh toán tiền mặt khi nhận hàng.</p>';
+        } else if (method === 'card') {
+            paymentTitle.textContent = 'Thanh toán bằng thẻ tín dụng';
+            paymentContent.innerHTML = '<p>Chúng tôi hỗ trợ thanh toán qua các loại thẻ tín dụng như Visa, MasterCard.</p>';
+        } else if (method === 'later') {
+            paymentTitle.textContent = 'Thanh toán trả sau';
+            paymentContent.innerHTML = '<p>Bạn có thể chọn phương thức trả sau khi nhận hàng.</p>';
+        }
+
+        // Ẩn dropdown khi người dùng chọn xong
+        document.getElementById('paymentOptions').style.display = 'none';
+    }
+
+    // Tìm kiếm sản phẩm
+    function searchProducts() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+        const products = document.querySelectorAll('.product');
+        products.forEach(product => {
+            const name = product.querySelector('h3').textContent.toLowerCase();
+            if (name.includes(input)) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none';
+            }
+        });
+    }
+    //Hiện thị sản phẩm khi người dùng chọn một sản phẩm bagoofgom tên, ảnh, giá
+    function showProductDetail(name, image, price, origin, material, description) {
+        document.getElementById('modalProductName').textContent = name;
+        document.getElementById('modalProductImage').src = image;
+        document.getElementById('modalProductPrice').textContent = 'Giá: ' + price;
+        document.getElementById('modalProductOrigin').textContent = 'Xuất xứ: ' + origin;
+        document.getElementById('modalProductMaterial').textContent = 'Chất liệu: ' + material;
+        document.getElementById('modalProductDescription').textContent = description;
+
+        // Hiển thị modal
+        document.getElementById('productModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('productModal').style.display = 'none';
+    }
+    function toggleDetails(button) {
+        var productDetails = button.nextElementSibling;
+
+        // Kiểm tra nếu phần chi tiết đang ẩn thì hiện ra, nếu hiện thì ẩn đi
+        if (productDetails.classList.contains('active')) {
+            productDetails.classList.remove('active');
+        } else {
+            productDetails.classList.add('active');
+        }
+
+    }
+</script>
+
+</body>
+</html>
